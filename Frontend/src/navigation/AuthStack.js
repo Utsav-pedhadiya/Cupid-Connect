@@ -13,6 +13,11 @@ const AuthStack = (Stack) => {
         component={screens.Splashscreen}
         options={navigationOptions}
       />
+      <Stack.Screen
+        name={routeNames.AGREETERMSCONDITION}
+        component={screens.AgreeTermsCondition}
+        options={navigationOptions}
+      />
     </>
   );
 };
