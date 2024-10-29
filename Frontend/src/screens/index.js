@@ -1,6 +1,6 @@
 import Splashscreen from './SplashScreen';
 import AgreeTermsCondition from './AgreeTermsCondition';
-// import PhoneNumber from './PhoneNumber';
+import PhoneNumber from './PhoneNumber';
 // import Otp from './Otp';
 // import IntroSlider from './IntroSlider';
 // import SwipeScreens from './SwipeScreens';
@@ -37,7 +37,7 @@ const screens = {
   //Auth stack screen
   Splashscreen,
   AgreeTermsCondition,
-  // PhoneNumber,
+  PhoneNumber,
   // Otp,
   // IntroSlider,
   // SwipeScreens,

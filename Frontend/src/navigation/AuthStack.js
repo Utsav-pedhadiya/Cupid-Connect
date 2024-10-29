@@ -18,6 +18,11 @@ const AuthStack = (Stack) => {
         component={screens.AgreeTermsCondition}
         options={navigationOptions}
       />
+          <Stack.Screen
+        name={routeNames.PHONENUMBER}
+        component={screens.PhoneNumber}
+        options={navigationOptions}
+      />
     </>
   );
 };
