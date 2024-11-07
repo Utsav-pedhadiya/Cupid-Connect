@@ -96,3 +96,47 @@ exports.getUserById = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+
+exports.sendRequest = async (req, res) => {
+    try {
+        const { senderId, receiverId } = req.body;
+        if (!senderId || !receiverId) {
+            return res.status(400).json({ error: 'Sender and receiver IDs are required' });
+        }
+
+        const receiver = await userService.sendRequest(senderId, receiverId);
+        res.status(200).json({ message: 'Request sent successfully', receiver });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+// Accept a friend request
+exports.acceptRequest = async (req, res) => {
+    try {
+        const { userId, senderId } = req.body;
+        if (!userId || !senderId) {
+            return res.status(400).json({ error: 'User ID and sender ID are required' });
+        }
+
+        const user = await userService.acceptRequest(userId, senderId);
+        res.status(200).json({ message: 'Request accepted successfully', user });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+// Reject a friend request
+exports.rejectRequest = async (req, res) => {
+    try {
+        const { userId, senderId } = req.body;
+        if (!userId || !senderId) {
+            return res.status(400).json({ error: 'User ID and sender ID are required' });
+        }
+
+        const user = await userService.rejectRequest(userId, senderId);
+        res.status(200).json({ message: 'Request rejected successfully', user });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};

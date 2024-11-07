@@ -27,7 +27,14 @@ const userSchema = new mongoose.Schema({
     write_about_yourself: String,
     qualities: String,
     interests: String,
-    device_token: String
+    device_token: String,
+    requests: [
+        {
+            sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+            status: { type: String, enum: ['pending', 'accepted', 'rejected'], default: 'pending' },
+            createdAt: { type: Date, default: Date.now }
+        }
+    ]
 });
 
 module.exports = mongoose.model('User', userSchema);

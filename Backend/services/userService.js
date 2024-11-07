@@ -16,3 +16,53 @@ exports.getUserById = async (userId) => {
     const user = await User.findById(userId);
     return user;
 };
+
+exports.sendRequest = async (senderId, receiverId) => {
+    const sender = await User.findById(senderId);
+    const receiver = await User.findById(receiverId);
+
+    if (!sender || !receiver) {
+        throw new Error('Sender or receiver not found');
+    }
+
+    const existingRequest = receiver.requests.find(
+        (req) => req.sender.toString() === senderId && req.status === 'pending'
+    );
+    if (existingRequest) {
+        throw new Error('Request already sent and pending');
+    }
+
+    receiver.requests.push({ sender: senderId });
+    await receiver.save();
+    return receiver;
+};
+
+// Accept a request
+exports.acceptRequest = async (userId, senderId) => {
+    const user = await User.findById(userId);
+    if (!user) throw new Error('User not found');
+
+    const request = user.requests.find(
+        (req) => req.sender.toString() === senderId && req.status === 'pending'
+    );
+    if (!request) throw new Error('Pending request not found');
+
+    request.status = 'accepted';
+    await user.save();
+    return user;
+};
+
+// Reject a request
+exports.rejectRequest = async (userId, senderId) => {
+    const user = await User.findById(userId);
+    if (!user) throw new Error('User not found');
+
+    const request = user.requests.find(
+        (req) => req.sender.toString() === senderId && req.status === 'pending'
+    );
+    if (!request) throw new Error('Pending request not found');
+
+    request.status = 'rejected';
+    await user.save();
+    return user;
+};
