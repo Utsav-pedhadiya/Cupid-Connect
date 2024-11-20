@@ -1,6 +1,6 @@
 const routeNames = {
   //Auth stack screen
-  SPLASHSCRREN: 'Splashscrren',
+  SPLASHSCREEN: 'Splashscreen',
   AGREETERMSCONDITION: 'AgreeTermsCondition',
   OTP: 'Otp',
   PHONENUMBER: 'PhoneNumber',

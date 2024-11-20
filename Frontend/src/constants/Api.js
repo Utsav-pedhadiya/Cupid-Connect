@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3000/api/';
+export const BASE_URL = 'http://10.89.193.26:3000/api';
 
 // Login for all
 export const LOGIN_API = BASE_URL + '/login';

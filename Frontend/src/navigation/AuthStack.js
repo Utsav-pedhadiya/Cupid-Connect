@@ -9,7 +9,7 @@ const AuthStack = (Stack) => {
   return (
     <>
       <Stack.Screen
-        name={routeNames.SPLASHSCRREN}
+        name={routeNames.SPLASHSCREEN}
         component={screens.Splashscreen}
         options={navigationOptions}
       />

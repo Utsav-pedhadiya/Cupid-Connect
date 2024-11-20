@@ -5,29 +5,17 @@ import styles from "./style";
 import Icon from "react-native-vector-icons/AntDesign";
 const Button = ({ onPress, disabled, title, IconeName }) => {
   return (
-    <View
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <>
       <TouchableOpacity
+        style={styles.button}
         onPress={disabled ? null : onPress}
-        style={[styles.button, disabled && styles.disabledButton]}
-        disabled={disabled}
       >
-        {/* <LinearGradient
-          colors={['#FF6B5B', '#FC2F7A']}
-          style={styles.buttonContainer}
-          start={{x: 1, y: 0}}
-          end={{x: 1, y: 1}}> */}
-        <View style={styles.rowContainer}>
-          <Text style={styles.buttonText}>{title}</Text>
-          <Icon name={IconeName} size={25} color="white" style={styles.Icon} />
+        <View style={styles.content}>
+          <Text style={styles.text}>{title}</Text>
+          <Icon name={IconeName} size={24} color="#fff" style={styles.icon} />
         </View>
-        {/* </LinearGradient> */}
       </TouchableOpacity>
-    </View>
+    </>
   );
 };
 
