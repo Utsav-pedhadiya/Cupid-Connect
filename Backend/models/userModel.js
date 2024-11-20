@@ -30,11 +30,13 @@ const userSchema = new mongoose.Schema({
     device_token: String,
     requests: [
         {
-            sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+            sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
             status: { type: String, enum: ['pending', 'accepted', 'rejected'], default: 'pending' },
             createdAt: { type: Date, default: Date.now }
         }
     ]
 });
 
-module.exports = mongoose.model('User', userSchema);
+
+const User = mongoose.model('User', userSchema);
+module.exports = User;

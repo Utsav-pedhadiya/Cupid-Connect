@@ -34,13 +34,16 @@ exports.sendRequest = async (senderId, receiverId) => {
 
     receiver.requests.push({ sender: senderId });
     await receiver.save();
-    return receiver;
+
+    return { receiver, senderName: sender.name };
 };
 
-// Accept a request
+// Accept a request with sender's name in response
 exports.acceptRequest = async (userId, senderId) => {
     const user = await User.findById(userId);
-    if (!user) throw new Error('User not found');
+    const sender = await User.findById(senderId);
+
+    if (!user || !sender) throw new Error('User or sender not found');
 
     const request = user.requests.find(
         (req) => req.sender.toString() === senderId && req.status === 'pending'
@@ -49,13 +52,16 @@ exports.acceptRequest = async (userId, senderId) => {
 
     request.status = 'accepted';
     await user.save();
-    return user;
+
+    return { user, senderName: sender.name };
 };
 
-// Reject a request
+// Reject a request with sender's name in response
 exports.rejectRequest = async (userId, senderId) => {
     const user = await User.findById(userId);
-    if (!user) throw new Error('User not found');
+    const sender = await User.findById(senderId);
+
+    if (!user || !sender) throw new Error('User or sender not found');
 
     const request = user.requests.find(
         (req) => req.sender.toString() === senderId && req.status === 'pending'
@@ -64,5 +70,6 @@ exports.rejectRequest = async (userId, senderId) => {
 
     request.status = 'rejected';
     await user.save();
-    return user;
+
+    return { user, senderName: sender.name };
 };
