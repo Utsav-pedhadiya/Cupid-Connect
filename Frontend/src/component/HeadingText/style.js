@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     fontSize: constant.FontSize.title,
     fontWeight: constant.FontWeight.regular,
     color: constant.colors.black,
-    marginLeft: 16,
+    // marginLeft: 16,
     marginTop: 15,
     fontSize: 30
   },

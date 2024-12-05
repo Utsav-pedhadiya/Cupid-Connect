@@ -1,55 +1,26 @@
 import React, {useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Dimensions} from 'react-native';
 import styles from './style';
 import ProfileButton from '../ProfileButton';
-import {Modal} from 'react-native';
 import constant from '../../constants/constant';
 import routeNames from '../../constants/routeNames';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Entypo';
-import Icon1 from 'react-native-vector-icons/AntDesign';
-import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import Icon3 from 'react-native-vector-icons/FontAwesome';
-import Icon4 from 'react-native-vector-icons/Octicons';
-import ConfirmationModal from '../ConfirmationModal';
+import {useTranslation} from 'react-i18next';
 
-const ProfileHeader = ({name, buttontitle, monumber, modalStyle}) => {
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+const ProfileHeader = ({name, buttontitle, monumber, modalStyle, onPress}) => {
   const {navigate} = useNavigation();
-  const model = () => {
-    showDeleteConfirmation(!setShowDeleteConfirmation);
-  };
-  const confirmDelete = async () => {
-    navigate(routeNames.DELETEACCOUNT);
-  };
-
-  const cancelDelete = () => {
-    setShowDeleteConfirmation(false);
-  };
-
+  const {t, i18n} = useTranslation();
+  const screenWidth = Dimensions.get('window').width;
   const newStyle = modalStyle ? styles.modalStyle : null;
   return (
-    <View style={[styles.container2, newStyle]}>
+    <View style={[styles.container2, newStyle,{height: screenWidth * 0.7}]}>
       <View style={styles.fColoum}>
-        <TouchableOpacity onPress={model}>
-          <Icon
-            name="dots-three-vertical"
-            size={25}
-            color="black"
-            style={styles.Icon}
-          />
+        <TouchableOpacity onPress={onPress}>
+          <Icon3 name="trash-o" size={25} color="black" style={[styles.Icon,{marginRight: screenWidth * 0.07}]} />
         </TouchableOpacity>
       </View>
-
-      {showDeleteConfirmation && (
-        <ConfirmationModal
-          ModalTitle={'Are you sure you want to delete this account?'}
-          isVisible={showDeleteConfirmation}
-          confirm={confirmDelete}
-          cancel={cancelDelete}
-        />
-      )}
 
       <View style={styles.SColoum}>
         <Icon3
@@ -58,13 +29,13 @@ const ProfileHeader = ({name, buttontitle, monumber, modalStyle}) => {
           color="#3B3B3B"
           style={styles.Simage}
         />
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.moNumber}>{monumber}</Text>
+        <Text style={styles.name}>{t(name)}</Text>
+        <Text style={styles.moNumber}>{t(monumber)}</Text>
         <ProfileButton
-          text={buttontitle}
+          text={t(buttontitle)}
           source={constant.imagePath.rightRedArrow}
           onPress={() => {
-            navigate(routeNames.SUBSCRIPTION);
+            navigate(routeNames.SUBSCRIPTIONHISTORY);
           }}
         />
       </View>

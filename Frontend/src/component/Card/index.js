@@ -1,39 +1,41 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import styles from './style';
+import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+import styles from './style'; 
 
-const Card = ({
+const CardContainer = ({
   timeDuration,
   cost,
   currency,
   contentlineone,
-  contentlinetwo,
-  contentlinethree,
+  planName,
   onPress,
   backgroundColor,
-  card2,
-  card3,
 }) => {
-  const cardStyle = card2 ? styles.card2 : styles.description;
-  const cardStyle2 = card3 ? styles.card3 : styles.description;
+  const { t } = useTranslation();
+  
   return (
-    <>
-      <TouchableOpacity onPress={onPress}>
-        <View style={[styles.card, cardStyle, cardStyle2, { backgroundColor }]}> 
-          <View style={styles.timeDuration}>
-            <Text style={styles.time}>{timeDuration}</Text>
-          </View>
-          <View style={styles.costcontainer}>
-            <Text style={styles.cost}>{cost}</Text>
-            <Text style={styles.currency}>{currency}</Text>
-          </View>
-          <Text style={styles.contentlineone}>{contentlineone}</Text>
-          <Text style={styles.contentlineone}>{contentlinetwo}</Text>
-          <Text style={styles.contentlineone}>{contentlinethree}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.container]}>
+      <View style={[styles.cardContainer, { backgroundColor }]}>
+        <View style={styles.circleShapeBig}>
+          <Icon name="diamond" size={40} color="#fff"  />
         </View>
-      </TouchableOpacity>
-    </>
+        <View style={styles.cardContent}>
+          <Text style={styles.planName}>{t(planName)}</Text>
+          <Text style={styles.cardTitle}>{t(timeDuration)}Plan</Text>
+          <View style={styles.priceContainer}>
+            <Text style={styles.cardCurrency}>{(currency) || '$'}</Text>
+            <Text style={styles.cardPrice}>{t(cost)}</Text>
+          </View>
+          <View style={styles.featuresContainer}>
+            <Text style={styles.cardDescription}>{t(contentlineone)}</Text>
+          </View>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
-export default Card;
+export default CardContainer;

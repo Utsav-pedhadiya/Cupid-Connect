@@ -2,16 +2,16 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   package: {
-    width: 125,
+    width: '100%',
+  },
+  container: {
+    borderRadius: 25,
     height: 38,
     backgroundColor: '#f1e2e6',
-    borderRadius: 25,
-    flexDirection: 'row',
-    // alignItems: 'center',
+    paddingHorizontal:15,
   },
   name: {
     textAlign: 'center',
-    left:23,
     justifyContent: 'center',
     top: 5,
     fontSize: 17,
@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
   },
   Icon: {
     top: 9,
-    left: 25,
   },
 });
 

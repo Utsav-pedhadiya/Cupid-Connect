@@ -2,16 +2,18 @@ import React from 'react';
 import routeNames from '../constants/routeNames';
 import screens from '../screens/index';
 
-
 const HomeStack = Stack => {
   const navigationOptions = {
     headerShown: false,
   };
+
+  
   return (
     <>
+
       <Stack.Screen
-        name={routeNames.APPNAVIGATOR}
-        component={screens.AppNavigator}
+        name={routeNames.TABNAVIGATOR}
+        component={screens.TabNavigator}
         options={navigationOptions}
       />
       <Stack.Screen
@@ -97,6 +99,16 @@ const HomeStack = Stack => {
       <Stack.Screen
         name={routeNames.DELETEACCOUNT}
         component={screens.DeleteAccount}
+        options={navigationOptions}
+      />
+      <Stack.Screen
+        name={routeNames.APPLICATIONEVALUATE}
+        component={screens.ApplicationEvaluate}
+        options={navigationOptions}
+      />
+      <Stack.Screen
+        name={routeNames.SUBSCRIPTIONHISTORY}
+        component={screens.SubscriptionHistory}
         options={navigationOptions}
       />
 

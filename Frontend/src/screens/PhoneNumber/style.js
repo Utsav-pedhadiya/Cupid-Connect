@@ -9,20 +9,8 @@ const styles = StyleSheet.create({
   errorText: {
     fontSize: 15,
     color: constant.colors.redBorder,
-    marginLeft: 16,
-    top: 5
-
-  },
-  error: {
-    flexDirection: 'row',
-    marginLeft: 16,
-    top: 10,
-  },
-  HeadingText: {
-    top: 28,
-  },
-  SecondText: {
-    top: 12,
+    // marginLeft: 16,
+    top: 5,
   },
 });
 

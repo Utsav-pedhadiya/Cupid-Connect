@@ -1,15 +1,17 @@
-import React from "react";
-import routeNames from "../constants/routeNames";
-import screens from "../screens/index";
+import React, {useEffect} from 'react';
 
-const AuthStack = (Stack) => {
+import routeNames from '../constants/routeNames';
+import screens from '../screens/index';
+
+const AuthStack = Stack => {
   const navigationOptions = {
     headerShown: false,
   };
+
   return (
     <>
       <Stack.Screen
-        name={routeNames.SPLASHSCREEN}
+        name={routeNames.SPLASHSCRREN}
         component={screens.Splashscreen}
         options={navigationOptions}
       />
@@ -18,9 +20,24 @@ const AuthStack = (Stack) => {
         component={screens.AgreeTermsCondition}
         options={navigationOptions}
       />
-          <Stack.Screen
+      <Stack.Screen
         name={routeNames.PHONENUMBER}
         component={screens.PhoneNumber}
+        options={navigationOptions}
+      />
+      <Stack.Screen
+        name={routeNames.OTP}
+        component={screens.Otp}
+        options={navigationOptions}
+      />
+      <Stack.Screen
+        name={routeNames.INTROSLIDER}
+        component={screens.IntroSlider}
+        options={navigationOptions}
+      />
+           <Stack.Screen
+        name={routeNames.SIGNUPSCREENS}
+        component={screens.SignupScreens}
         options={navigationOptions}
       />
     </>

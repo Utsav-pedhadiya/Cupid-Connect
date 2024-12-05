@@ -2,78 +2,44 @@ import {StyleSheet} from 'react-native';
 import constant from '../../constants/constant';
 
 const styles = StyleSheet.create({
-  container: {
-    alignSelf: 'center',
-    width: 363,
-    height: 140,
-    top: 10,
-    backgroundColor: '#FFEDEF',
-    borderRadius: 12,
-    marginBottom: 12,
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 12,
+    marginVertical: 5,
+    marginHorizontal: 20,
   },
-  read: {
-    backgroundColor: '#e5e5e5',
+  title: {
+    fontSize: 20,
+    color: 'black',
   },
-  maincontainer: {
+  rightContent: {
     flexDirection: 'row',
-  },
-  image: {
-    top: 25,
-    left: 15,
-  },
-
-  datacontainer: {
-    left: 30,
-  },
-  maindata: {
-    flexDirection: 'row',
+ 
     justifyContent: 'space-between',
-    top: 17,
   },
-  name: {
-    fontSize: 18,
-    fontWeight: constant.FontWeight.regular,
+  contentContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  QualityStyle: {
+    flexDirection: 'column',
+  },
+  content: {
+    fontSize: 16,
+    marginRight: 10,
+    fontWeight: '500',
     color: constant.colors.black,
+    textAlign: 'justify',
   },
-  time: {
-    marginLeft: 125,
-    top: 2,
-    fontSize: 14,
-    color: constant.colors.black,
-  },
-  datacontainer2: {
-    top: 20,
-  },
-  name2: {
-    fontSize: 13,
-    fontWeight: constant.FontWeight.regular,
-    color: constant.colors.black,
+  Icon:{
+    top:5
   },
   horizontalLine: {
-    borderBottomColor: '#F2F2F2',
-    borderBottomWidth: 2,
-    marginVertical: 5,
-    width: 340,
-    left: 15,
-    top: 30,
-    // marginBottom: 25
-  },
-  buttonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 40,
-    paddingHorizontal: 20,
-  },
-  button2: {
-    left: 50,
-  },
-  text: {
-    fontSize: 16,
-    color: constant.colors.black,
+    borderBottomColor: '#ccc',
+    borderBottomWidth: 1,
+    marginVertical: 10,
   },
 });
 
 export default styles;
-{
-  /* <SecondaryText secondTitle={'Accept'} /> */
-}

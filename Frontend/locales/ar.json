@@ -1,4 +1,3 @@
-
 {
   "Welcome": "خوش آمدید",
   "Agree Terms & Conditions": "الموافقة على الشروط والأحكام",
@@ -145,7 +144,7 @@
   "liked your profile": "أحب ملفك الشخصي",
   "Viewed your profile": "تم الاطلاع على ملفك",
   "Your request is rejected": "تم رفض طلبك",
-  "Your is request accepted": "تم قبول طلبك",
+  "Your request is accepted": "تم قبول طلبك",
   "Your profile is viewed": "يتم عرض ملف التعريف الخاص بك",
   "Your profile is liked": "ملفك الشخصي محبوب",
   "Your request is sent": "يتم عرض ملف التعريف الخاص بك",
@@ -303,7 +302,7 @@
   "Select Hobbies": "اختر الهوايات",
   "You sent request": "لقد أرسلت الطلب",
   "No subscription history data available.": "لا تتوفر بيانات سجل الاشتراك.",
-  "Sharei": "شاري",
+  "Cupid Connect": "شاري",
   "Search here...": "ابحث هنا...",
   "Search nationality": "بحث عن الجنسية",
   "Search  Place Of Residence": "البحث عن مكان الإقامة",

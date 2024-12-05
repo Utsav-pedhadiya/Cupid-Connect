@@ -1,18 +1,43 @@
-import { StyleSheet, Text, View } from "react-native";
-import Routes from "./src/navigation/Routes";
-import { TouchableOpacity } from "react-native";
+import React, {useEffect} from 'react';
+import {
+  StyleSheet,
+  StatusBar,
+  SafeAreaView,
+  Keyboard,
+  TouchableWithoutFeedback,
+  LogBox,
+} from 'react-native';
+import Routes from './src/navigation/Routes';
+import {AuthProvider} from './src/Authcontext/AuthContext';
+import 'react-native-gesture-handler';
+import SplashScreen from 'react-native-splash-screen';
+import constant from './src/constants/constant';
 
-export default function App() {
+const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
-    <View style={styles.container}>
-      <Routes />
-    </View>
+    <AuthProvider>
+      <>
+        <TouchableWithoutFeedback
+          onPress={Keyboard.dismiss}
+          accessible={false}>
+          <SafeAreaView style={styles.container}>
+            <Routes />
+          </SafeAreaView>
+        </TouchableWithoutFeedback>
+      </>
+    </AuthProvider>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "pink",
+    backgroundColor: constant.colors.white,
   },
 });
+
+export default App;

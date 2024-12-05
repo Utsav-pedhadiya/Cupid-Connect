@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'white',
   },
   textArea: {
-    height: 171,
+    height: 130,
     justifyContent: 'flex-start',
     backgroundColor: constant.colors.inputcolor,
     width: 360,
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     padding: 12,
     borderColor: constant.colors.greyBorder,
+    color:'black'
   },
   textAreaYourselfStyle: {
     height: 172,

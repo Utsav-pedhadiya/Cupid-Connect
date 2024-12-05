@@ -1,11 +1,24 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Dimensions} from 'react-native';
 import styles from './style';
+import {useTranslation} from 'react-i18next';
 
 const PrimaryText = ({title}) => {
+  const {t, i18n} = useTranslation();
+  const screenWidth = Dimensions.get('window').width;
+  const isRTL = i18n.language === 'ar';
   return (
-    <View>
-      <Text style={styles.text}>{title}</Text>
+    <View style={{flexDirection: isRTL ? 'row-reverse' : 'row'}}>
+      <Text
+        style={[
+          styles.text,
+          {
+            marginHorizontal: screenWidth * 0.05,
+            textAlign: I18nManager.isRTL ? 'right' : 'left', // Set text alignment based on language direction
+          },
+        ]}>
+        {t(title)}
+      </Text>
     </View>
   );
 };

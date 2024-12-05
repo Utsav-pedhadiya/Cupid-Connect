@@ -6,9 +6,10 @@ const styles = StyleSheet.create({
     fontSize: constant.FontSize.primaryText,
     fontWeight: constant.FontWeight.semibold,
     color: constant.colors.heading,
-    marginLeft: 16,
+    // marginLeft: 16,
     marginTop: 28,
     // fontSize: 30
+    backgroundColor: 'red',
   },
   introheadingtitle: {
     fontSize: constant.FontSize.title,

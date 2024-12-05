@@ -7,15 +7,12 @@ const styles = StyleSheet.create({
     width: 363,
     height: 80,
     top: 10,
-    backgroundColor: '#FFEDEF',
+    backgroundColor: '#e5e5e5',
     borderRadius: 12,
     marginBottom: 12,
   },
   read: {
     backgroundColor: '#e5e5e5',
-  },
-  maincard: {
-    flexDirection: 'row',
   },
   image: {
     top: 22,
@@ -62,9 +59,7 @@ const styles = StyleSheet.create({
 
     justifyContent: 'center',
   },
-  leftAlign: {
-    alignItems: 'flex-start',
-  },
+
   rightAlign: {
     alignItems: 'flex-end',
   },

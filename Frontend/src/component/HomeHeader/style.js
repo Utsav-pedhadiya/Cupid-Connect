@@ -3,8 +3,8 @@ import constant from '../../constants/constant';
 
 const styles = StyleSheet.create({
   container: {
-    height: 133,
-    width: 390,
+    height: 100,
+    // width: 390,
     backgroundColor: '#FFFFFF',
     shadowRadius: 4,
     shadowColor: '#000000',
@@ -31,19 +31,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 16
-    
   },
   main: {
-    flexDirection: 'row',
+    // flexDirection: 'row',
     alignItems: 'center',
-    // justifyContent: 'center',
-    //  backgroundColor: 'pink',
     top: 15,
     paddingRight:18
   },
   text: {
     flex: 1,
-    // textAlign: 'center',
     left:16,
     fontSize: 24,
     color:constant.colors.black,
@@ -59,7 +55,12 @@ const styles = StyleSheet.create({
   righttext:{
     fontSize:22,
     color:constant.colors.pinkBorder
-  }
+  },
+  user: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 27,
+  },
 });
 
 export default styles;

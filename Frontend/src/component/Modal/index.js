@@ -5,21 +5,34 @@ import {
   Animated,
   Text,
   View,
+  Dimensions,
+  ScrollView,
 } from 'react-native';
 import styles from './style';
-import SearchBar from 'react-native-dynamic-search-bar';
 import Icon from 'react-native-vector-icons/Octicons';
+import {useTranslation} from 'react-i18next';
 import ModalButton from '../ModalButton';
+import Searchbar from '../Searchbar';
 
 const ModalComponent = ({
   isVisible,
-  onClose,
+  closeIconModal,
   children,
   modalheading,
   searchbar,
+  placeholder,
+  value,
+  ModalButtontitle,
+  showModalButton,
+  onChangeText,
+  onSearchPress,
+  onPress,
+  searchValue,
+  SearchStyle,
 }) => {
+  const {t} = useTranslation();
   const slideAnimation = useRef(new Animated.Value(0)).current;
-
+  const screenWidth = Dimensions.get('window').width;
   useEffect(() => {
     if (isVisible) {
       showAnimation();
@@ -46,61 +59,47 @@ const ModalComponent = ({
 
   const translateY = slideAnimation.interpolate({
     inputRange: [0, 1],
-    outputRange: [600, 0], 
+    outputRange: [600, 0],
   });
-
   return (
     <>
-      <View style={styles.container}>
-        <Modal
-          transparent
-          animationType="slide"
-          visible={isVisible}
-          // onRequestClose={onClose}
-        >
-          <TouchableOpacity
-            style={styles.overlay}
-            activeOpacity={1}
-            // onPress={onClose}
-          >
+      <View style={[styles.container]}>
+        <Modal transparent animationType="slide" visible={isVisible}>
+          <View style={styles.overlay}>
             <Animated.View
-              style={[styles.modalContainer, {transform: [{translateY}]}]}>
-              <View style={styles.heading}>
-                <Text style={styles.text}>{modalheading}</Text>
-                <TouchableOpacity onPress={onClose}>
-                  <Icon
-                    name="x-circle-fill"
-                    size={25}
-                    color="#898989"
-                    // style={styles.Icon}
-                  />
+              style={[
+                styles.modalContainer,
+                SearchStyle,
+                {transform: [{translateY}]},
+              ]}>
+              <View style={[styles.heading]}>
+                <Text
+                  style={[
+                    styles.text,
+                    {
+                      marginHorizontal: screenWidth * 0.03,
+                    },
+                  ]}>
+                  {t(modalheading)}
+                </Text>
+                <TouchableOpacity onPress={closeIconModal}>
+                  <Icon name="x-circle-fill" size={25} color="#898989" />
                 </TouchableOpacity>
               </View>
               {searchbar ? (
-                <SearchBar
-                  style={{
-                    height: 44,
-                    width: 360,
-                    backgroundColor: '#EBEBEB',
-                    top: 10,
-                    marginBottom: 10,
-                  }}
-                  fontColor="#c6c6c6"
-                  iconColor="#c6c6c6"
-                  shadowColor="#282828"
-                  backgroundColor="#EBEBEB"
-                  placeholder="Search here"
-                  showCancel={false}
-                  onSearchPress={() => console.log('Search Icon is pressed')}
+                <Searchbar
+                  placeholder={placeholder}
+                  value={searchValue}
+                  onChangeText={onChangeText}
+                  onSearch={onSearchPress}
                 />
               ) : null}
-
-              {children}
-              {/* <ModalButton title={'Done'} /> */}
-              {/* <Image source={source} /> */}
-              {/* <PrimaryText title={title} /> */}
+              <ScrollView style={{maxHeight: '100%'}} >{children}</ScrollView>
+              {showModalButton ? null : (
+                <ModalButton title={ModalButtontitle} onPress={onPress} />
+              )}
             </Animated.View>
-          </TouchableOpacity>
+          </View>
         </Modal>
       </View>
     </>

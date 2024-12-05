@@ -1,24 +1,29 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import styles from './style.js'; // Import your style file
+import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import styles from './style';
+import { useTranslation } from 'react-i18next';
 
-const ConfirmationModal = ({isVisible, confirm, cancel}) => {
-  if (!isVisible) return null; // Hide the modal if isVisible is false
+const ConfirmationModal = ({ isVisible, onConfirm, onCancel, title, mark }) => {
+  const {t} = useTranslation();
+  const screenWidth = Dimensions.get('window').width;
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <View style={styles.overlay}>
-      <View style={styles.main}>
-        <Text style={styles.modalTitle}>{ModalTitle}</Text>
+      <View style={[styles.centeredMain,{width: screenWidth * 0.6}]}>
+        <Text style={styles.modalTitle}>{t(title)}{t(mark)}</Text>
         <View style={styles.popup}>
           <TouchableOpacity
-            style={[styles.button, styles.yesButton]}
-            onPress={confirm}>
-            <Text style={styles.buttonText}>Yes</Text>
+            style={[styles.button,{width: screenWidth * 0.2}, styles.yesButton]}
+            onPress={onConfirm}>
+            <Text style={styles.buttonText}>{t("Yes")}</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.button, styles.cancelButton]}
-            onPress={cancel}>
-            <Text style={styles.buttonText}>Cancel</Text>
+            style={[styles.button, {width: screenWidth * 0.2},styles.cancelButton]}
+            onPress={onCancel}>
+            <Text style={styles.buttonText}>{t("Cancel")}</Text>
           </TouchableOpacity>
         </View>
       </View>

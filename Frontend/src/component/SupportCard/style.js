@@ -3,38 +3,39 @@ import constant from '../../constants/constant';
 
 const styles = StyleSheet.create({
   container: {
-    width: 360,
     height: 78,
   },
-  image: {top: 5},
+  image: {
+    alignSelf: 'flex-start',
+    marginTop: 5,
+  },
   maincontainer: {
-    flexDirection: 'row',
-    top: 16,
+    alignItems: 'center',
   },
   name: {
     fontSize: 20,
-    color: 'black'
+    color: 'black',
   },
   datacontainer: {
-    left: 10,
+    flex: 1,
+    marginHorizontal: 16,
   },
   user: {
     top: 27,
   },
   image2: {
-    bottom: 30,
-    left: 330,
+    alignSelf: 'center',
   },
   Information: {
     fontSize: 14,
     top: 5,
-    width:280
+    color: 'black',
   },
   horizontalLine: {
     borderBottomColor: constant.colors.underLine,
     borderBottomWidth: 2,
-    width: 360,
-    top: 10,
+    alignSelf: 'center',
+    bottom: 15,
   },
 });
 

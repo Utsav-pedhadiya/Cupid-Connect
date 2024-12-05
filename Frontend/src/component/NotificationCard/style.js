@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   },
   maincard: {
     flexDirection: 'row',
+    alignItems: "center",
   },
   image: {
     top: 22,
@@ -35,8 +36,8 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: constant.FontWeight.regular,
     color: constant.colors.black,
-    top: 20,
-    left: 40,
+    paddingHorizontal: 15,
+    alignSelf: 'flex-end',
   },
   horizontalLine: {
     borderBottomColor: '#D9D9D9',
@@ -55,18 +56,17 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: constant.colors.black,
+
   },
   column: {
-    flexDirection: 'row',
+    flexDirection: 'row', 
     flex: 1,
-
+    paddingHorizontal: 10,
     justifyContent: 'center',
   },
-  leftAlign: {
-    alignItems: 'flex-start',
-  },
   rightAlign: {
-    alignItems: 'flex-end',
+    // alignItems: 'center',
+    // alignSelf: 'center',
   },
   column2: {
     top: 15,

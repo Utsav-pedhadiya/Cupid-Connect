@@ -1,27 +1,33 @@
-import {StyleSheet} from 'react-native';
-import colours from '../../constants/constant';
-
+import { StyleSheet } from 'react-native';
 import constant from '../../constants/constant';
 
 const styles = StyleSheet.create({
-  checkboxContainer: {
-    flexDirection: 'row',
+  container: {
+    marginTop: 10,
+    marginLeft: 8,
+  },
+  optionContainer: {
     alignItems: 'center',
-  },
-  checkbox: {
-    width: 20,
-    height: 20,
-    borderWidth: 2,
-    borderColor: 'black',
-    borderRadius: 10, // Change the border radius to make it rounded
-    marginRight: 10,
-  },
-  checked: {
-    backgroundColor: 'blue',
-    borderColor: 'blue',
+    marginVertical: 10,
+
   },
   label: {
-    fontSize: 16,
+    marginLeft: 10,
+    fontSize: constant.FontSize.RadioText,
+    fontWeight: constant.FontWeight.regular,
+    color: constant.colors.black, 
+  },
+  checkbox: {
+    width: 24, 
+    height: 24, 
+    borderRadius: 12, 
+    borderWidth: 2, 
+    borderColor: constant.colors.pinkBorder, 
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checkedCheckbox: {
+    backgroundColor: constant.colors.pinkBorder,
   },
 });
 

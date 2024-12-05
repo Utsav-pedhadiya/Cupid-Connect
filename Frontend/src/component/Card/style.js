@@ -1,60 +1,89 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import constant from '../../constants/constant';
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: '#ECF0F4',
-    borderRadius: 12,
-    padding: 16,
-    width: 360,
-    marginLeft: 16,
-    marginTop: 16,
+  container: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    paddingHorizontal: 20,
   },
-  card2: {
-    backgroundColor: '#CCF3FA',
+  cardContainer: {
+    width: '100%',
+    borderRadius: 20,
+    overflow: 'hidden',
+    marginTop: 20,
   },
-  card3: {
-    backgroundColor: '#D4E0FB',
+  cardGradient: {
+    paddingLeft: 20,
+    paddingBottom: 10,
+    borderRadius: 20,
+    position: 'relative',
   },
-  timeDuration: {
-    fontSize: 16,
-    marginBottom: 8,
+  circleShapeBig: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#4caf50',
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'absolute',
+    // top: -50,
+    top: 10,
+    left: Dimensions.get('window').width / 2 - 50,
+    zIndex: 1,
   },
-  time: {
-    color: '#6C6868',
+  cardContent: {
+    marginTop: 40,
+    alignItems: 'center',
   },
-  costcontainer: {
+  cardTitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#4caf50',
+    textAlign: 'center',
+  },
+  cardDescription: {
+    fontSize: 18,
+    color: '#666',
+    marginVertical: 15,
+    textAlign: 'center',
+    paddingHorizontal: 20,
+  },
+  priceContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 10,
   },
-  cost: {
-    fontSize: 40,
-    fontWeight: constant.FontWeight.heavy,
-    color: '#3B3B3B',
-    right: 5,
+  cardPrice: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
   },
-  currency: {
-    fontSize: 16,
-    color: '#3B3B3B',
+  cardCurrency: {
+    fontSize: 18,
+    color: '#666',
+    marginLeft: 5,
   },
-  contentlineone: {
-    fontSize: 16,
-    marginTop: 8,
-    color: '#606060',
+  planName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    marginTop: 50,
   },
-  contentlinetwo: {
-    fontSize: 16,
-    marginTop: 8,
-    color: '#606060',
+  featuresContainer: {
+    marginTop: 10,
+    width: '100%',
+    paddingHorizontal: 20,
   },
-  contentlinethree: {
-    fontSize: 16,
-    marginTop: 8,
-    color: '#606060',
-  },
+  // featureItem: {
+  //   flexDirection: 'row',
+  //   alignItems: 'center',
+  //   marginVertical: 5,
+  // },
+  // featureText: {
+  //   fontSize: 16,
+  //   color: '#333333',
+  //   marginLeft: 10,
+  // },
 });
-
 export default styles;

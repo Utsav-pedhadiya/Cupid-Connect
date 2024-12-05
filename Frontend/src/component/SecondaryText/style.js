@@ -9,9 +9,9 @@ const styles = StyleSheet.create({
     fontSize: constant.FontSize.secondaryText,
     fontWeight: constant.FontWeight.regular,
     color: constant.colors.secondaryText,
-    marginLeft: 16,
+    // marginLeft: 16,
     marginTop: 12,
-    width: '90%',
+    // width: '90%',
     textAlign: 'justify',
   },
   introsecondarytitle: {

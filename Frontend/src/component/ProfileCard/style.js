@@ -3,30 +3,31 @@ import constant from '../../constants/constant';
 
 const styles = StyleSheet.create({
   card: {
-    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: 8,
     padding: 14,
     marginTop: 5,
+    marginHorizontal: 16,
   },
   cardText: {
-    flex: 1,
     fontSize: 18,
-    color: constant.colors.black
+    color: constant.colors.black,
+marginHorizontal:16
+  },
+  leftContainer: {
+    alignItems: 'center',
   },
   leftIcon: {
-    marginRight: 9,
-    marginLeft: 9,
+    marginRight: 10, // Adjust as needed
   },
   rightIcon: {
-    marginRight: 18,
+    marginLeft: 'auto', // Pushes it to the right end
   },
   horizontalLine: {
     borderBottomColor: '#F2F2F2',
     borderBottomWidth: 2,
-    width: 340,
-    left: 30,
+    alignSelf: 'center',
   },
 });
 

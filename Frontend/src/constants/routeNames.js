@@ -1,11 +1,10 @@
 const routeNames = {
   //Auth stack screen
-  SPLASHSCREEN: 'Splashscreen',
+  SPLASHSCRREN: 'Splashscrren',
   AGREETERMSCONDITION: 'AgreeTermsCondition',
   OTP: 'Otp',
   PHONENUMBER: 'PhoneNumber',
   INTROSLIDER: 'IntroSlider',
-  SWIPESCREENS: 'SwipeScreens',
   GENDER: 'Gender',
   PROFESSION: 'Profession',
   NATIONALITY: 'Nationality',
@@ -15,6 +14,7 @@ const routeNames = {
   SUPPORT: 'Support',
   MARITIALSTATUS: 'MaritialStatus',
   ABOUTYOURSELF: 'AboutYourself',
+  SIGNUPSCREENS: 'SignupScreens',
 
   //Home stack screen
   HOMESCREEN: 'HomeScreen',
@@ -30,10 +30,13 @@ const routeNames = {
   EDITNAME: 'EditName',
   REPORTPROBLEM: 'ReportProblem',
   APPNAVIGATOR: 'AppNavigator',
+  TABNAVIGATOR: 'TabNavigator',
   MAINTERMSCONDITION: 'MainTermsCondition',
   LANGAUGE: 'Langauge',
   PROFILEDETAILS: 'ProfileDetails',
   VIEWPROFILE: 'ViewProfile',
   HISTORY: 'History',
+  APPLICATIONEVALUATE: 'ApplicationEvaluate',
+  SUBSCRIPTIONHISTORY: 'SubscriptionHistory',
 };
 export default routeNames;

@@ -7,44 +7,37 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 18,
-    color: constant.colors.black
+    color: constant.colors.black,
   },
-
   datacontainer: {
-    left: 16,
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
   },
   maincontainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
-  data: {
-    flexDirection: 'row',
-    top: 7,
-    right:5
-  },
+
   main: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
-  icon: {right: 7},
-  requestcontainer: {
-    flexDirection: 'row',
-    left: 63,
-  },
-  request: {
-    fontSize: 13,
-    color: "#3B3B3B"
-  },
+
   location: {
     fontSize: 13,
-    color: "#3B3B3B"
+    color: '#3B3B3B',
+    marginRight: 5,
   },
   horizontalLine: {
-    borderBottomColor: '#F2F2F2', 
+    borderBottomColor: '#F2F2F2',
     borderBottomWidth: 2,
     marginVertical: 10,
     width: 360,
-    // left: 63,
     top: 10,
-    marginBottom: 25
+    marginBottom: 25,
+    alignSelf: 'center',
   },
 });
 

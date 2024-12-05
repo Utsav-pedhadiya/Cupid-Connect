@@ -2,10 +2,11 @@ import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
   header: {
-    // backgroundColor: 'red',
+    backgroundColor: 'red',
     padding: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor:'white'
   },
   headerText: {
     color: 'black',

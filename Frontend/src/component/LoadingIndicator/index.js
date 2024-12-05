@@ -18,4 +18,3 @@ const styles = StyleSheet.create({
 });
 
 export default LoadingIndicator;
-// P1oiA0zHAq1WeRzgwEV4tao0bEfskUqr1LiRBlAa397c604dg

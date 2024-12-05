@@ -1,33 +1,43 @@
-//import liraries
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Dimensions} from 'react-native';
 import styles from './style';
-import {Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import {useTranslation} from 'react-i18next';
+import i18next from 'i18next';
 
-const ProfileCard = ({text, FLeftIcon, FRightIcon, onPress ,IconName}) => {
+const ProfileCard = ({text, onPress, IconName}) => {
+  const {t} = useTranslation();
+  const screenWidth = Dimensions.get('window').width;
+  const isRTL = i18next.language === 'ar';
+
   return (
     <>
       <TouchableOpacity onPress={onPress}>
-        <View style={styles.card}>
-          <View style={styles.leftIcon}>
-          <Icon1 name={IconName} size={30} color="black" style={styles.image} />
-            <Image source={FLeftIcon} style={styles.image} />
-          </View>
-          <Text style={styles.cardText}>{text}</Text>
-          <View style={styles.rightIcon}>
-            {/* <Image source={FRightIcon} style={styles.image} /> */}
-            <Icon
-              name="chevron-right"
-              size={25}
+        <View
+          style={[styles.card, {flexDirection: isRTL ? 'row-reverse' : 'row'}]}>
+          <View
+            style={[
+              styles.leftContainer,
+              {flexDirection: isRTL ? 'row-reverse' : 'row'},
+            ]}>
+            <Icon1
+              name={IconName}
+              size={30}
               color="black"
-              style={styles.Icon}
+              style={styles.leftIcon}
             />
+            <Text style={styles.cardText}>{t(text)}</Text>
           </View>
+          <Icon
+            name="chevron-right"
+            size={25}
+            color="black"
+            style={styles.rightIcon}
+          />
         </View>
         <View>
-          <View style={styles.horizontalLine} />
+          <View style={[styles.horizontalLine, {width: screenWidth * 0.9}]} />
         </View>
       </TouchableOpacity>
     </>

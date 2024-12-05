@@ -1,66 +1,93 @@
 import React, {useEffect, useState} from 'react';
-import {View, TouchableOpacity, Text, Platform} from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  Dimensions,
+  Modal,
+} from 'react-native';
+import DatePicker from 'react-native-date-picker';
+import { storeData} from '../../Authcontext/Async';
+import {useTranslation} from 'react-i18next';
 import styles from './style';
-import { getData, storeData } from '../../Authcontext/Async';
 
 const DateSelector = ({setSelecteddob}) => {
+  const {t, i18n} = useTranslation();
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
   const [age, setAge] = useState(0);
-
+  const screenWidth = Dimensions.get('window').width;
   const currentDate = new Date();
 
   const calculateAge = dob => {
     const diffInMs = Date.now() - dob.getTime();
     const ageDate = new Date(diffInMs);
-    console.log("sdfcsdc",Math.abs(ageDate.getUTCFullYear() - 1970));
-    storeData('age', Math.abs(ageDate.getUTCFullYear() - 1970));
-    // return Math.abs(ageDate.getUTCFullYear() - 1970);
+    const calculatedAge = Math.abs(ageDate.getUTCFullYear() - 1970);
+    storeData('age', calculatedAge);
+    setAge(calculatedAge);
   };
 
-  const onChange = (event, selectedDate) => {
-    setShowDatePicker(Platform.OS === 'ios');
+  useEffect(() => {
+    setSelecteddob(selectedDate);
+  }, [selectedDate]);
 
-    setDate(selectedDate || date);
-    setSelectedDate(
-      selectedDate ? selectedDate.toISOString().split('T')[0] : '',
-    );
-    setSelecteddob(
-      selectedDate ? selectedDate.toISOString().split('T')[0] : '',
-    );
+  const onChange = selectedDate => {
+    const selectedYear = selectedDate.getFullYear();
 
-   // Calculate age
-    const dob = selectedDate || date;
-    const calculatedAge = calculateAge(dob);
-    setAge(calculatedAge);
+    setDate(selectedDate);
+    const formattedDate = selectedDate.toISOString().split('T')[0];
+    setSelectedDate(selectedYear); 
+    storeData('dob', selectedYear);
+
   };
 
   const showDateTimePicker = () => {
     setShowDatePicker(true);
   };
+
+  const handleConfirm = () => {
+    setShowDatePicker(false);
+
+    calculateAge(date);
+  };
+
+  const formattedDate = selectedDate || t('Select Date'); 
+
   return (
-    <View>
+    <View style={styles.mainContainer}>
       <TouchableOpacity onPress={showDateTimePicker}>
-        <View style={styles.container}>
-          <Text style={styles.text}>
-            {selectedDate ? selectedDate : 'Select Date'}
-          </Text>
+        <View style={[styles.container, {width: screenWidth * 0.9}]}>
+          <Text style={styles.text}>{formattedDate}</Text>
         </View>
       </TouchableOpacity>
 
-      {showDatePicker && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          maximumDate={currentDate}
-          mode="date"
-          is24Hour={true}
-          display="default"
-          onChange={onChange}
-        />
-      )}
+      <Modal
+        visible={showDatePicker}
+        transparent={true}
+        animationType="slide"
+        onRequestClose={() => setShowDatePicker(false)}>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <DatePicker
+              date={date}
+              maximumDate={currentDate}
+              mode="date"
+              onDateChange={onChange}
+              textColor="black"
+            />
+
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity onPress={handleConfirm}>
+                <Text style={styles.confirmButtonText}>{t('Confirm')}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => setShowDatePicker(false)}>
+                <Text style={styles.cancelButtonText}>{t('Cancel')}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };

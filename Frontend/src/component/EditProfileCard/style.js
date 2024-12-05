@@ -9,40 +9,48 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     marginHorizontal: 20,
   },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 5,
-  },
   title: {
-    fontSize: 20,
-    fontWeight: '450',
-    // marginBottom: 5,
+    fontSize: 18,
+    color: 'black',
   },
   rightContent: {
     flexDirection: 'row',
-    alignItems: 'center',
+
     justifyContent: 'space-between',
-    flex: 1,
   },
   contentContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // backgroundColor: 'red'
+  },
+  QualityStyle: {
+    flexDirection: 'column',
   },
   content: {
     fontSize: 16,
     marginRight: 10,
     fontWeight: '500',
     color: constant.colors.black,
+
     textAlign: 'justify',
+  },
+  contentt: {
+    fontSize: 16,
+    // marginRight: 10,
+    fontWeight: '500',
+    color: constant.colors.black,
+    // backgroundColor: 'red',
+    textAlign: 'justify',
+    width: 300,
+    
+  },
+  Icon: {
+    top: 5,
+    // right:15,
   },
   horizontalLine: {
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
     marginVertical: 10,
-
   },
 });
 

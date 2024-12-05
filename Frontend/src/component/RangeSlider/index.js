@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import styles from './style'; 
+import {Dimensions, Text, View} from 'react-native';
+import styles from './style';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 import InputText from '../InputText';
 import HeadingText from '../HeadingText';
+import {useTranslation} from 'react-i18next';
 
 const RangeSlider = ({
   values,
@@ -17,12 +18,21 @@ const RangeSlider = ({
   onChangeText2,
   value2,
   title,
+  placeholder1,
+  placeholder2,
 }) => {
+  const updateSliderValues = (minValue, maxValue) => {
+    if (minValue <= maxValue) {
+      onValuesChange([minValue, maxValue]);
+    }
+  };
+  const {t, i18n} = useTranslation();
+
+  const screenWidth = Dimensions.get('window').width;
   return (
     <>
       <View style={styles.heading}>
-        {/* <HeadingText title={title} /> */}
-        <Text style={styles.name}>{title}</Text>
+        <Text style={styles.name}>{t(title)}</Text>
       </View>
       <View style={styles.container}>
         <MultiSlider
@@ -51,21 +61,29 @@ const RangeSlider = ({
         />
         <View style={styles.inputRow}>
           <InputText
-            onChangeText={onChangeText1}
+            onChangeText={text => {
+              const sanitizedText = text.slice(0, 3);
+              onChangeText1(sanitizedText);
+              updateSliderValues(parseInt(sanitizedText), parseInt(value2));
+            }}
             value={value1}
             keyboardType="numeric"
-            placeholder="Min Age"
+            placeholder={t(placeholder1)}
             RangerStyle={true}
           />
           <InputText
+            onChangeText={text => {
+              const sanitizedText = text.slice(0, 3); 
+              onChangeText2(sanitizedText);
+              updateSliderValues(parseInt(value1), parseInt(sanitizedText));
+            }}
             value={value2}
-            onChangeText={onChangeText2}
             keyboardType="numeric"
-            placeholder="Max Age"
+            placeholder={t(placeholder2)}
             RangerStyle={true}
           />
         </View>
-        <View style={styles.horizontalLine} />
+        <View style={[styles.horizontalLine, {width: screenWidth * 0.9}]} />
       </View>
     </>
   );

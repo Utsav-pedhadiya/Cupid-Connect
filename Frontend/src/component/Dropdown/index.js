@@ -1,50 +1,46 @@
-import React, {useState} from 'react';
-import { Text, View} from 'react-native';
-import {Dropdown} from 'react-native-element-dropdown';
-import constant from '../../constants/constant';
+import React from 'react';
+import {View, Text, TouchableOpacity, Modal, ScrollView} from 'react-native';
 import styles from './style';
+import { useTranslation } from 'react-i18next';
 
-// ...
-const DropDown = ({data, placeholder}) => {
-  const [value, setValue] = useState(null);
-  const [isFocus, setIsFocus] = useState(false);
+const Dropdown = ({title, selectedValue, placeholder, onSelect, options}) => {
+  const {t} = useTranslation();
+  const [modalVisible, setModalVisible] = React.useState(false);
 
-  const renderLabel = () => {
-    if (value || isFocus) {
-      return (
-        <Text style={[styles.label, isFocus && {color: 'blue'}]}>
-          Dropdown label
-        </Text>
-      );
-    }
-    return null;
+  const handleSelect = value => {
+    onSelect(value);
+    setModalVisible(false);
   };
 
   return (
-    <View style={styles.container}>
-      {/* {renderLabel()} */}
-      <Dropdown
-        style={[
-          styles.dropdown,
-          isFocus && {borderColor: constant.colors.greyBorder},
-        ]}
-        data={data}
-        search
-        placeholder={placeholder}
-        maxHeight={300}
-        labelField="label"
-        valueField="value"
-        searchPlaceholder="Search..."
-        value={value}
-        onFocus={() => setIsFocus(true)}
-        onChange={item => {
-          setValue(item.value);
-          setIsFocus(false);
-        }}
-      />
+    <View>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <View style={styles.inputContainer}>
+          <Text style={styles.placeholderText}>
+            {selectedValue ? selectedValue.label : placeholder}
+          </Text>
+        </View>
+      </TouchableOpacity>
+      <Modal visible={modalVisible} animationType="slide">
+        <View style={styles.modalContainer}>
+          <Text style={styles.modalHeader}>{t(title)}</Text>
+          <ScrollView>
+            {options.map(option => (
+              <TouchableOpacity
+                key={option.value}
+                style={styles.option}
+                onPress={() => handleSelect(option.value)}>
+                <Text style={styles.optionText}>{t(option.label)}</Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+        <TouchableOpacity onPress={() => setModalVisible(false)}>
+          <Text style={styles.closeButton}>{t("Close")}</Text>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
 
-export default DropDown;
-
+export default Dropdown;

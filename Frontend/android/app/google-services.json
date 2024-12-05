@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "872124829437",
+    "project_id": "legalapp-694a9",
+    "storage_bucket": "legalapp-694a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872124829437:android:c928339bb1fa2baabc3894",
+        "android_client_info": {
+          "package_name": "com.legalfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACQvqrQlRDDqt0Qiim9nWWLhKM7SySJM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

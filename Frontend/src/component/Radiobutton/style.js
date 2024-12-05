@@ -4,17 +4,21 @@ import constant from '../../constants/constant';
 const styles = StyleSheet.create({
   container: {
     marginTop: 10,
-    marginLeft: 8,
+    marginBottom: 5,
+
   },
   optionContainer: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     alignItems: 'center',
-    marginVertical: 5,
   },
   label: {
-    marginLeft: 10,
     fontSize: constant.FontSize.RadioText,
-    fontWeight: constant.FontWeight.regular
+    fontWeight: constant.FontWeight.regular,
+  },
+  checkBoxContainer: {
+    borderWidth: 0,
+    backgroundColor: 'white',
+    
   },
 });
 

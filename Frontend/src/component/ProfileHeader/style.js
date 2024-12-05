@@ -4,10 +4,11 @@ import constant from '../../constants/constant';
 const styles = StyleSheet.create({
   container2: {
     backgroundColor: '#f0f0f0',
-    height: 290,
+    // height: "70%",
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     shadowColor: 'blue',
+    paddingBottom:200
   },
   modalStyle: {
     height: 290,
@@ -16,10 +17,9 @@ const styles = StyleSheet.create({
     shadowColor: 'blue',
   },
   fColoum: {flexDirection: 'row', justifyContent: 'flex-end', margin: 13},
-  SColoum: {alignItems: 'center', marginTop: 15},
-  // Simage:{marginBottom:12},
-  name: {fontSize: 20, color: constant.colors.black},
-  moNumber: {marginBottom: 10, marginTop: 3},
+  SColoum: {alignItems: 'center', marginTop: 5},
+  name: {fontSize: 20, color: constant.colors.black, width: '80%', textAlign: "center"},
+  moNumber: {marginBottom: 10, marginTop: 3,color:'black'},
   modalContainer: {
     height: 80,
     width: 200,

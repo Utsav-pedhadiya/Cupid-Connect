@@ -1,60 +1,70 @@
-import React, { useState } from "react";
-import { View, Text, Image, Alert } from "react-native";
-import styles from "./style";
-import Button from "../../component/Button";
-import { useNavigation } from "@react-navigation/native";
-import routeNames from "../../constants/routeNames";
-import constant from "../../constants/constant";
-import { TouchableOpacity } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import React, {useState} from 'react';
+import {View, Text, Image} from 'react-native';
+import CheckBox from 'react-native-check-box';
+import styles from './style';
+import Button from '../../component/Button';
+import {useNavigation} from '@react-navigation/native';
+import routeNames from '../../constants/routeNames';
+import {useTranslation} from 'react-i18next';
+import LangDropDown from '../../component/LangDropDown';
+import constant from '../../constants/constant';
+import i18next from 'i18next';
+import Searchbar from '../../component/Searchbar';
 
 const AgreeTermsCondition = () => {
-  const { navigate } = useNavigation();
-  const [isChecked, setIsChecked] = useState(true);
+  const {navigate} = useNavigation();
+  const {t} = useTranslation();
+  const [isChecked, setChecked] = useState(false);
+  const [isError, setIsError] = useState(true);
+  const isRTL = i18next.language === 'ar';
 
-  const handleCheck = () => {
-    setIsChecked(true);
+  const handleCheckboxChange = () => {
+    setChecked(!isChecked);
+    setIsError(true);
   };
 
-  const handleSubmit = () => {
-    if (!isChecked) {
-      Alert.alert(
-        "Error",
-        "You must accept the terms and conditions to proceed."
-      );
-    } else {
-      Alert.alert("Success", "Terms and conditions accepted!");
+  const handleNextButton = () => {
+    if (isChecked) {
       navigate(routeNames.PHONENUMBER);
+    } else {
+      setIsError(false);
     }
   };
 
   return (
     <View style={styles.container}>
-      <View style={styles.checkboxContainer}>
-        <TouchableOpacity onPress={handleCheck} style={styles.checkbox}>
-          <MaterialIcons
-            name={isChecked ? "check-box" : "check-box-outline-blank"}
-            size={24}
-            color="#007bff"
-          />
-        </TouchableOpacity>
-        <Text style={styles.text}>
-          I agree to the{" "}
-          <Text
-            style={styles.link}
-            onPress={() =>
-              Alert.alert("Terms", "Display terms and conditions here.")
-            }
-          >
-            Terms and Conditions
-          </Text>
-        </Text>
+      {/* <LangDropDown /> */}
+      <View style={styles.imgcontainer}>
+        <Image source={constant.imagePath.logoimage} style={styles.img} />
+        <Text style={styles.logotext}>{t('Welcome')}</Text>
       </View>
 
+      <View
+        style={[
+          styles.checkboxContainer,
+          {flexDirection: isRTL ? 'row-reverse' : 'row'},
+        ]}>
+        <CheckBox
+          isChecked={isChecked}
+          checkBoxColor="#FF6B5B"
+          onClick={handleCheckboxChange}
+        />
+
+        <Text style={styles.checkboxText}>{t('Agree Terms & Conditions')}</Text>
+      </View>
+
+      <Text
+        style={[
+          styles.errorText,
+          {opacity: isError ? 0 : 1, textAlign: isRTL ? 'right' : 'left'},
+        ]}>
+        {t('Please agree to the Terms & Conditions')}
+      </Text>
       <Button
-        title={"Next"}
-        IconeName={"arrowright"}
-        onPress={handleSubmit}
+        title={t('Next')}
+        IconeName={'arrowright'}
+        onPress={handleNextButton}
+        imageSource={constant.imagePath.nextarrow}
       />
     </View>
   );

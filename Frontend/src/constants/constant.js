@@ -46,7 +46,6 @@ export default constant = {
     view: '#FC3876',
   },
   imagePath: {
-    splashscreen: require('../assets/images/icon/Splash.png'),
     logoimage: require('../assets/images/logoimage.png'),
     writedata: require('../assets/images/icon/Writedata.png'),
     phone: require('../assets/images/icon/phone.png'),
@@ -64,5 +63,6 @@ export default constant = {
     roundMenu: require('../assets/images/icon/round.png'),
     tabProfile: require('../assets/images/icon/tabProfile.png'),
     bigUser: require('../assets/images/icon/bigUser.png'),
+    splashscreen: require('../assets/images/Splash.png'),
   },
 };

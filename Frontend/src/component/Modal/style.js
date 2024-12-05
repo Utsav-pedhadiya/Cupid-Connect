@@ -12,17 +12,17 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     paddingHorizontal: 20,
     paddingTop: 20,
-    maxHeight: 780,
+    maxHeight: '90%',
   },
   overlay: {
     flex: 1,
+    // height: "100%",
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
     justifyContent: 'flex-end',
   },
   text: {
     fontSize: 24,
     color: constant.colors.black,
-    // marginBottom: 10,
   },
   heading: {
     flexDirection: 'row',

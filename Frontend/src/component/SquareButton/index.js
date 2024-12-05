@@ -46,7 +46,7 @@ const SquareButton = ({titleOne, titleTwo}) => {
               styles.buttonTextOne,
               selectedButton === 2 && styles.upatedTextonone,
             ]}>
-            {titleOne}
+            {t(titleOne)}
           </Text>
         </TouchableOpacity>
 
@@ -63,7 +63,7 @@ const SquareButton = ({titleOne, titleTwo}) => {
               selectedButton === 2 && styles.upatedTextonTwo,
               selectedButton === 1 && styles.upatedTextonone,
             ]}>
-            {titleTwo}
+            {t(titleTwo)}
           </Text>
         </TouchableOpacity>
       </View>
@@ -88,7 +88,7 @@ const SquareButton = ({titleOne, titleTwo}) => {
         <TouchableOpacity onPress={toggleDatePicker}>
           <InputText
             editable={false}
-            placeholder="Select Date"
+            placeholder={t("Select Date")}
             value={
               selectedButton === 1
                 ? dobMale.toDateString()
