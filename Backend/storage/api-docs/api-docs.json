@@ -1,0 +1,1640 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Swagger with Laravel",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/datingapp/api/user/{id}": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get Profile From ID + views",
+                "operationId": "5cdb38c1ded9dabd0a893e66344368e3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/user/like/{id}": {
+            "get": {
+                "tags": [
+                    "Like"
+                ],
+                "summary": "Send Profile Like",
+                "operationId": "90bc8826bc8b53c90717177c49317bfe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/get_user": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get logged-in user details",
+                "operationId": "4d2f8dda103fab81596e66b79c1c0d37",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/get_all_user": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get All Users details",
+                "operationId": "7f135d00347c5e6242ba42852f4f9c67",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/notifications": {
+            "get": {
+                "tags": [
+                    "Notifiaction"
+                ],
+                "summary": "Get All Notification",
+                "operationId": "789296fe2dd4e0db027d2ffc26415e18",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/notifications/view/{id}": {
+            "get": {
+                "tags": [
+                    "Notifiaction"
+                ],
+                "summary": "View Notification",
+                "operationId": "70586bc9cd4585d9c23d87c48ecbdd29",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Notification",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/request/{id}": {
+            "post": {
+                "tags": [
+                    "Requests"
+                ],
+                "summary": "Send Contact Request",
+                "operationId": "a9d87169d33b79cbdfb4699f79bb0b80",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/request/accept/{id}": {
+            "post": {
+                "tags": [
+                    "Requests"
+                ],
+                "summary": "Accept Contact Request",
+                "operationId": "1900ef2bb227a292d8e639b6d5253b3d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the request",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "Enter Number",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "note",
+                        "in": "query",
+                        "description": "Enter Note",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Request Accepted"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/request/reject/{id}": {
+            "post": {
+                "tags": [
+                    "Requests"
+                ],
+                "summary": "Send Contact Request",
+                "operationId": "8a2113305c952e1f0bd24be803817814",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/get_all_contacts": {
+            "get": {
+                "tags": [
+                    "Contacts"
+                ],
+                "summary": "Get All Request Contacts",
+                "operationId": "7ab2b32c1521a12e9650f43bd438800a",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/report/send": {
+            "post": {
+                "tags": [
+                    "Report"
+                ],
+                "summary": "Send Report",
+                "operationId": "1f582944c9ac786f02c42038032ca027",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "note"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "note": {
+                                        "type": "string"
+                                    },
+                                    "data": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Report Submitted"
+                    },
+                    "404": {
+                        "description": "Report Not Submitted"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/get_filter_data": {
+            "post": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "Filter Data List",
+                "operationId": "b8a67542efb44939ad0da9d9e4944b68",
+                "parameters": [
+                    {
+                        "name": "min_age",
+                        "in": "query",
+                        "description": "Enter Min Age",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "max_age",
+                        "in": "query",
+                        "description": "Enter Max Age",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "min_children",
+                        "in": "query",
+                        "description": "Enter Min Children",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "max_children",
+                        "in": "query",
+                        "description": "Enter Max Children",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "description": "Enter City",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "martial_status",
+                        "in": "query",
+                        "description": "Enter Martial Status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "job",
+                        "in": "query",
+                        "description": "Enter Martial Status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nationality",
+                        "in": "query",
+                        "description": "Enter Martial Status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "nationality_ar",
+                        "in": "query",
+                        "description": "Enter Martial Status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city_ar",
+                        "in": "query",
+                        "description": "Enter Martial Status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "por_ar",
+                        "in": "query",
+                        "description": "Enter Martial Status",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "place_of_residence",
+                        "in": "query",
+                        "description": "Enter Place of Residence",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "min_length",
+                        "in": "query",
+                        "description": "Enter Min Height",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "max_length",
+                        "in": "query",
+                        "description": "Enter Max Height",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "min_weight",
+                        "in": "query",
+                        "description": "Enter Min Weight",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "max_weight",
+                        "in": "query",
+                        "description": "Enter Max Weight",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "type_of_marriage",
+                        "in": "query",
+                        "description": "Enter Max Weight",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type_of_marriage_ar",
+                        "in": "query",
+                        "description": "Enter Max Weight",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type_of_hijab",
+                        "in": "query",
+                        "description": "Enter Max Weight",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type_of_hijab_ar",
+                        "in": "query",
+                        "description": "Enter Max Weight",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "400": {
+                        "description": "Not Valid"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/get_subscription_list": {
+            "get": {
+                "tags": [
+                    "Subscriptions"
+                ],
+                "summary": "Get All Subscription",
+                "operationId": "90824873cf36626fd26e1a2d480a880d",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/history_list": {
+            "get": {
+                "tags": [
+                    "History"
+                ],
+                "summary": "Get All History List",
+                "operationId": "dd79e3a0d6b8481fe10bc0b796901a11",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/whome_list": {
+            "get": {
+                "tags": [
+                    "History"
+                ],
+                "summary": "Get All Whome List",
+                "operationId": "b75215013226a06e846893e27913de53",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/get_subscription_details/{id}": {
+            "get": {
+                "tags": [
+                    "Subscriptions"
+                ],
+                "summary": "Get All Subscription",
+                "operationId": "20d46b32c0034e651dd26f4875d7bc66",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/feedback/send": {
+            "post": {
+                "tags": [
+                    "Feedback"
+                ],
+                "summary": "Send Feedback",
+                "operationId": "89d121c8a8f7b03ae7f4c274cbb1a85b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "data"
+                                ],
+                                "properties": {
+                                    "data": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Feedback Submitted"
+                    },
+                    "404": {
+                        "description": "Feedback Not Submitted"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/profile/search/{id}": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "d31e26d32bbc0ff660475c9de1138699",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Enter Name",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/subscription/history": {
+            "get": {
+                "tags": [
+                    "Subscriptions"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "8b00b015a7a89ca01fc22918f36ec352",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/terms/list": {
+            "get": {
+                "tags": [
+                    "Terms & Condition"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "47dfecf5c9cbd4d13fb651647828a82f",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/terms/details/{id}": {
+            "get": {
+                "tags": [
+                    "Terms & Condition"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "6e55d6e849ff9bbab584d46cf8f51412",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the Terms",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/payment/history": {
+            "get": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "88ce998b1d79c52e265fb07a3816475b",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/subscription/history/new": {
+            "get": {
+                "tags": [
+                    "Subscription"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "1de21e6b57e3c7a4af3b21559593a842",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/country/list": {
+            "get": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "da3591155fefe056ecc8d896161bd2c1",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/country_por/list": {
+            "get": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "5140e3f9ad197785f2fe77077c55565e",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/state/list/{country_id}": {
+            "post": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "fb98622ebe124b765bcf2717e1b67c37",
+                "parameters": [
+                    {
+                        "name": "country_id",
+                        "in": "path",
+                        "description": "Enter Country Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/city/list/{country_id}": {
+            "post": {
+                "tags": [
+                    "Collection"
+                ],
+                "summary": "Send Search Para Request",
+                "operationId": "eb2b50dbeb1834b97e33b0d08ff1a028",
+                "parameters": [
+                    {
+                        "name": "country_id",
+                        "in": "path",
+                        "description": "Enter Country Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Authenticate User & Create Sanctum Token",
+                "operationId": "66b4afb520ed12a6ee71ba3f4ba91e32",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "Enter Mobile Number",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "otp",
+                        "in": "query",
+                        "description": "Enter OTP",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "query",
+                        "description": "Enter Device Token",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "400": {
+                        "description": "Not Valid"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/registration": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register New User",
+                "operationId": "d44038435cdc054ebd29ebbe9e0664d0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "number",
+                                    "otp"
+                                ],
+                                "properties": {
+                                    "number": {
+                                        "type": "string"
+                                    },
+                                    "otp": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "age": {
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "nationality": {
+                                        "type": "string"
+                                    },
+                                    "interests_ar": {
+                                        "type": "string"
+                                    },
+                                    "city_ar": {
+                                        "type": "string"
+                                    },
+                                    "por_ar": {
+                                        "type": "string"
+                                    },
+                                    "place_of_residence": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "job": {
+                                        "type": "string"
+                                    },
+                                    "lineage": {
+                                        "type": "string"
+                                    },
+                                    "skin_color": {
+                                        "type": "string"
+                                    },
+                                    "martial_status": {
+                                        "type": "string"
+                                    },
+                                    "number_of_children": {
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "religious_commitment": {
+                                        "type": "string"
+                                    },
+                                    "financial_situation": {
+                                        "type": "string"
+                                    },
+                                    "height": {
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "width": {
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "body_tone": {
+                                        "type": "string"
+                                    },
+                                    "health_status": {
+                                        "type": "string"
+                                    },
+                                    "write_about_yourself": {
+                                        "type": "string"
+                                    },
+                                    "qualities": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "interests": {
+                                        "type": "string"
+                                    },
+                                    "device_token": {
+                                        "type": "string"
+                                    },
+                                    "type_of_marriage": {
+                                        "type": "string"
+                                    },
+                                    "type_of_hijab": {
+                                        "type": "string"
+                                    },
+                                    "type_of_marriage_ar": {
+                                        "type": "string"
+                                    },
+                                    "type_of_hijab_ar": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login successful"
+                    },
+                    "401": {
+                        "description": "Invalid credentials"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User Logout & Token Also Deleted",
+                "operationId": "844c90f21d68e69dc94676a07ee36864",
+                "parameters": [
+                    {
+                        "name": "device_token",
+                        "in": "query",
+                        "description": "Enter Device Token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/delete_account": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Delete Account",
+                "operationId": "d8bb5c10c97f7943331aabd48e1a1f45",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "Enter Mobile Number",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "400": {
+                        "description": "Not Valid"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/generate_otp": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Genrate OTP",
+                "operationId": "af95f2ce80f8a83106322eb1194b9808",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "query",
+                        "description": "Enter Mobile Number",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "400": {
+                        "description": "Not Valid"
+                    }
+                }
+            }
+        },
+        "/datingapp/api/profile_update/{id}": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Prodile Update",
+                "operationId": "2e5567a20cff1c41bd46f6c912c3012f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "number": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "age": {
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "nationality": {
+                                        "type": "string"
+                                    },
+                                    "nationality_ar": {
+                                        "type": "string"
+                                    },
+                                    "city_ar": {
+                                        "type": "string"
+                                    },
+                                    "por_ar": {
+                                        "type": "string"
+                                    },
+                                    "place_of_residence": {
+                                        "type": "string"
+                                    },
+                                    "city": {
+                                        "type": "string"
+                                    },
+                                    "job": {
+                                        "type": "string"
+                                    },
+                                    "lineage": {
+                                        "type": "string"
+                                    },
+                                    "skin_color": {
+                                        "type": "string"
+                                    },
+                                    "martial_status": {
+                                        "type": "string"
+                                    },
+                                    "number_of_children": {
+                                        "type": "integer",
+                                        "format": "int64"
+                                    },
+                                    "religious_commitment": {
+                                        "type": "string"
+                                    },
+                                    "financial_situation": {
+                                        "type": "string"
+                                    },
+                                    "height": {
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "width": {
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "body_tone": {
+                                        "type": "string"
+                                    },
+                                    "health_status": {
+                                        "type": "string"
+                                    },
+                                    "write_about_yourself": {
+                                        "type": "string"
+                                    },
+                                    "qualities": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "interests": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type_of_marriage": {
+                                        "type": "string"
+                                    },
+                                    "type_of_hijab": {
+                                        "type": "string"
+                                    },
+                                    "type_of_marriage_ar": {
+                                        "type": "string"
+                                    },
+                                    "type_of_hijab_ar": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Profile Updated"
+                    },
+                    "401": {
+                        "description": "Data Invalid"
+                    },
+                    "500": {
+                        "description": "Update  failed"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/deavtive_account": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "User Account Deactivated",
+                "operationId": "e33e85421387d76609a4d285d5e1b144",
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/subscription/check": {
+            "post": {
+                "tags": [
+                    "Subscription"
+                ],
+                "summary": "Check Subscription",
+                "description": "Check For SUbscription",
+                "operationId": "5c5291b31d431ca784ee1419ddf5b709",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "subscription_id"
+                                ],
+                                "properties": {
+                                    "subscription_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Procced With Payment "
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/payment/store": {
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Process payment",
+                "description": "Process payment using credit card details",
+                "operationId": "370e3fbc4d0e5ac85f87e8d76d935a6c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "card_holder_name",
+                                    "card_number",
+                                    "expiry_date",
+                                    "cvv",
+                                    "amount",
+                                    "subscription_id"
+                                ],
+                                "properties": {
+                                    "card_holder_name": {
+                                        "type": "string"
+                                    },
+                                    "card_number": {
+                                        "type": "string"
+                                    },
+                                    "expiry_date": {
+                                        "type": "string",
+                                        "pattern": "^\\d{2}/\\d{2}$"
+                                    },
+                                    "cvv": {
+                                        "type": "string"
+                                    },
+                                    "amount": {
+                                        "type": "number"
+                                    },
+                                    "subscription_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Payment successful"
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/payment/intial": {
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Process payment",
+                "description": "Process payment using credit card details",
+                "operationId": "73ae052ba202db78a3b2d5a66c7251ca",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "amount",
+                                    "subscription_id"
+                                ],
+                                "properties": {
+                                    "amount": {
+                                        "type": "number"
+                                    },
+                                    "subscription_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Payment successful"
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/datingapp/api/payment/stripe": {
+            "post": {
+                "tags": [
+                    "Payment"
+                ],
+                "summary": "Process payment",
+                "description": "Process payment using credit card details",
+                "operationId": "ee9573f80d7ac3716c439c33df6649df",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "tid"
+                                ],
+                                "properties": {
+                                    "tid": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Payment successful"
+                    },
+                    "400": {
+                        "description": "Bad request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/datingapp/api/subscription_update/{old_id}/{new_id}": {
+            "post": {
+                "tags": [
+                    "Subscription"
+                ],
+                "summary": "Upgrade Subscription",
+                "operationId": "ad18b102e458be733e20926239bf5353",
+                "parameters": [
+                    {
+                        "name": "old_id",
+                        "in": "path",
+                        "description": "ID of Old Subscription",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "new_id",
+                        "in": "path",
+                        "description": "ID of New Subscription",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

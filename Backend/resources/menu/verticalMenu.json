@@ -1,0 +1,83 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard-analytics"
+    },
+    {
+      "url": "/profiles",
+      "name": "Users",
+      "icon": "menu-icon tf-icons bx bx-user",
+      "slug": "profiles.index"
+    },
+
+    {
+      "url": "/subscriber/index",
+      "name": "Subscription - List",
+      "icon": "menu-icon tf-icons bx bx-crown",
+      "slug": "subscriber"
+
+    },
+
+    {
+      "url": "/subscriptionProfile/index",
+      "name": "User Subscriptions",
+      "icon": "menu-icon tf-icons bx bx-crown",
+      "slug": "subscriptionprofile"
+
+    },
+
+    {
+      "url": "/payment/index",
+      "name": "Payments",
+      "icon": "menu-icon tf-icons bx bx-money",
+      "slug": "payment"
+    },
+
+    {
+      "url": "/support/index",
+      "name": "Supports",
+      "icon": "menu-icon tf-icons bx bx-support",
+      "slug": "support"
+    },
+
+    {
+      "url": "/terms/index",
+      "name": "Terms & Condition",
+      "icon": "menu-icon tf-icons bx bx-clipboard",
+      "slug": "terms"
+    },
+    {
+      "url": "/AdminUser/index",
+      "name": "Admin - User",
+      "icon": "menu-icon tf-icons bx bx-clipboard",
+      "slug": "adminuser"
+    },
+
+    {
+      "name": "Collection",
+      "icon": "menu-icon tf-icons bx bx bx-globe",
+      "slug": "collection",
+      "submenu": [
+        {
+          "url": "/country/index",
+          "name": "Country",
+          "slug": "collection.country.index"
+        },
+        {
+          "url": "/state/index",
+          "name": "State",
+          "slug": "collection.state.index"
+        },
+        {
+          "url": "/city/index",
+          "name": "City",
+          "slug": "collection.city.index"
+        }
+      ]
+    }
+  ]
+}
+  
